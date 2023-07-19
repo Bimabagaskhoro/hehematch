@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Hehematchandroidapp</string>
+
+    <string name="default_web_client_id" translatable="false">832171784528-2u7m1t44svpakov1erqqr9pbehenjdbq.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">832171784528</string>
+    <string name="google_api_key" translatable="false">AIzaSyBkwPinKSz81kWA-Os_vO9-f3opxBCp-Bo</string>
+    <string name="google_app_id" translatable="false">1:832171784528:android:0a5da35f8286d774791455</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBkwPinKSz81kWA-Os_vO9-f3opxBCp-Bo</string>
+    <string name="google_storage_bucket" translatable="false">hehematch-2f5db.appspot.com</string>
+    <string name="project_id" translatable="false">hehematch-2f5db</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

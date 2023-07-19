@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832171784528",
+    "project_id": "hehematch-2f5db",
+    "storage_bucket": "hehematch-2f5db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832171784528:android:0a5da35f8286d774791455",
+        "android_client_info": {
+          "package_name": "com.hehematch.android.hehematchandrodapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832171784528-2u7m1t44svpakov1erqqr9pbehenjdbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkwPinKSz81kWA-Os_vO9-f3opxBCp-Bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832171784528-2u7m1t44svpakov1erqqr9pbehenjdbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
