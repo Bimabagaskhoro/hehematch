@@ -12,6 +12,16 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object FirebaseModule {
+    @Singleton
+    @Provides
+    fun provideDatabaseUserArea(): DatabaseReference {
+        return FirebaseDatabase.getInstance().getReference("userarea")
+    }
 
+
+    @Singleton
+    @Provides
+    fun provideUserRepository(resultsRepository: ResultsRepositoryImpl): ResultsRepository =
+        resultsRepository
 }

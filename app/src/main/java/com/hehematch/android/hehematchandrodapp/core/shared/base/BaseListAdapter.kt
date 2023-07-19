@@ -1,4 +1,4 @@
-package com.hehematch.android.hehematchandrodapp.core.shared
+package com.hehematch.android.hehematchandrodapp.core.shared.base
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

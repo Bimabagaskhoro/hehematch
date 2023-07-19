@@ -1,7 +1,7 @@
 package com.hehematch.android.hehematchandrodapp.ui.finder.resultsuser.adapter
 
 import android.view.View
-import com.hehematch.android.hehematchandrodapp.core.shared.BaseListAdapter
+import com.hehematch.android.hehematchandrodapp.core.shared.base.BaseListAdapter
 import com.hehematch.android.hehematchandrodapp.databinding.ItemResultsUserBinding
 import com.hehematch.android.hehematchandrodapp.ui.finder.core.model.FindUserModel
 

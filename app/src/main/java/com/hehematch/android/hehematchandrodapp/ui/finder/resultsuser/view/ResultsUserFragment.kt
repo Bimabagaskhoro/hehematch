@@ -3,61 +3,48 @@ package com.hehematch.android.hehematchandrodapp.ui.finder.resultsuser.view
 import android.Manifest.permission.*
 import android.content.pm.PackageManager
 import android.location.Location
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.hehematch.android.hehematchandrodapp.core.shared.CustomToast
 import com.hehematch.android.hehematchandrodapp.core.shared.UiState
+import com.hehematch.android.hehematchandrodapp.core.shared.base.BaseFragment
+import com.hehematch.android.hehematchandrodapp.core.shared.calculateDistance
 import com.hehematch.android.hehematchandrodapp.databinding.FragmentResultsUserBinding
 import com.hehematch.android.hehematchandrodapp.ui.finder.core.model.FindUserModel
 import com.hehematch.android.hehematchandrodapp.ui.finder.resultsuser.adapter.ResultsUserAdapter
 import com.hehematch.android.hehematchandrodapp.ui.finder.resultsuser.vm.ResultsUserViewModel
-import com.hehematch.android.hehematchandrodapp.utils.CustomToast
-import com.hehematch.android.hehematchandrodapp.utils.calculateDistance
 import kotlinx.coroutines.launch
 import java.util.*
 
-class ResultsUserFragment : Fragment() {
-    private val viewModel: ResultsUserViewModel by viewModels()
-    private var _binding: FragmentResultsUserBinding? = null
-    private val binding get() = _binding!!
+class ResultsUserFragment : BaseFragment<FragmentResultsUserBinding, ResultsUserViewModel>(
+    FragmentResultsUserBinding::inflate
+) {
+    override val viewModel: ResultsUserViewModel by viewModels()
+
+    //location
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var myLat = 0.0
+    private var myLong = 0.0
     private val adapterResults by lazy {
         ResultsUserAdapter { data ->
             Toast.makeText(requireContext(), data.username, Toast.LENGTH_SHORT).show()
         }
     }
 
-    //location
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private var myLat = 0.0
-    private var myLong = 0.0
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentResultsUserBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initView() {
         binding.rvUserResults.apply {
             adapter = adapterResults
         }
-        fetchData()
         setPermissionLocation()
     }
 
-    private fun fetchData() {
+    override fun observeData() {
         lifecycleScope.launch {
             viewModel.allData.collect { uiState ->
                 when (uiState) {
@@ -79,7 +66,6 @@ class ResultsUserFragment : Fragment() {
             }
         }
     }
-
 
     private fun showDataWithRadius(data: List<FindUserModel>) {
         val latitude = binding.myLatHelper.text.toString().toDouble()
